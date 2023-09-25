@@ -1,7 +1,3 @@
-console.log("dowolnytekst, 404")
-console.log (window)
-console.table (["jeden","dwa","czy"])
-console.group("bulbbulator")
-console.log ("kocham")
-console.log ("programowac")
-console.log ("w notatniku")
+Header_color = docudmentquerySelector("header"); 
+
+}

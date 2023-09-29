@@ -1,3 +1,3 @@
-Header_color = docudmentquerySelector("header"); 
+header = document.querySelector('header');
+header.style.backgroundColor= "yellow";
 
-}

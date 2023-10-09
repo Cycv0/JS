@@ -7,7 +7,7 @@
     <style>
         .green-text {
             color: green;
-            transition: text-shadow 0.5s;
+            transition: text-shadow 0s;
         }
 
         .green-text:hover {
@@ -33,14 +33,14 @@
         </p>
         <p onclick="changeFontSize(this)" ondblclick="resetFontSize(this)">Dowolny tekst w paragrafie.</p>
     </div>
-    <div oncontextmenu="displayImageSrc(event)">
-        <img src="obrazek.jpg" alt="Dowolny obrazek" width="300" height="200">
+    <div >
+        <img src="https://loremflickr.com/320/240" oncontextmenu="alert (this.src)" alt="Dowolny obrazek" width="300" height="200">
     </div>
     <div>
         <input type="text" onkeyup="copyTextToParagraph(this)">
         <p></p>
     </div>
-    <h1 class="green-text" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">Tekst w nagłówku H1</h1>
+    <h1 class="green-text" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">Zielona Mila</h1>
     <script src="09.10.23.js"></script>
 </body>
 </html>

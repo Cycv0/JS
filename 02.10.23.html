@@ -1,38 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zadanie1</title>
-</head>
+<html>
 <body>
-    <hr>
-    <p>1)</p>
-    <h1 id="myhead1">InnerHTML</h1>
-    <h6 id="myhead6">Zmień zawartość elementu h6 za pomocą metody
-        InnerHTML, na: "<i>Świetnie!</i>"
-    </h6>
-    <button id="mybutton1" onclick="myFunction('mybutton1')">Zrób to!</button>
-    <hr>
-    <p>2)</p>
-    <h1 id="myhead1">InnerText</h1>
-    <h5 id="myhead5">Zmień zawartość elementu h5 za pomocą metody
-        InnerText, na: "<i>Świetnie!</i>"
-    </h5>
-    <button id="mybutton2" onclick="myFunction('mybutton2')">Zrób to!</button>
-    <hr>
-<p>3)</p>
-<h1>tagName</h1>
-<p>fff</p>
-<hr>
-<p>4)</p>
-<h1>getAttribute</h1>
-<fieldset>
-<p><del id="myparagraph1" title="Title for my paragraph 1"></del></p>
-<p><code>kołd</code></p>
-<p><strong>stronk</strong></p>
-<p><em>e e em</em></p>
-</fieldset>
-    <script src="02.10.23.js"></script>
+    
+    <h1 >InnerHTMl</h1>
+
+    <button id="button1">Zbrób to</button>
+    <button id="button2">Zbrób to</button>
+
+    <h6 id="H1id">To jest H6</h6>
+    <h5 id="H2id">To jest H5</h5>
+
+    <button id="myButton">Zmień</button>
+    <div id="myDiv">
+        <p><del>Przykład</del></p>
+        <p><code>Przykład</code></p>
+        <p><strong>Przykład</strong></p>
+        <p><em>Przykład</em></p>
+    </div>
+
+
+    <p id="myParagraph" title="Przykładowy tytuł">To jest przykładowy tekst w elemencie p.</p>
+    <button id="myButton1">Pokaż title</button>
+
+    <p id="myParagraph1">To jest przykładowy tekst</p>
+    <button onclick="ustawAtrybutDir()">Ustaw atrybut dir</button>
+    </br></br>
+
+    <input type="text" id="myInput" name="myInput" placeholder="Input tekst" disabled>
+    <button id="textbutton">Button</button>
+
+    <p style="font-family: Arial Black;" id="pierwszyElementID">Usuń atrybuty style w tym elemencie</p>
+    <p style="font-family: Arial Black;"><a href="#" id="drugiElementID">Usuń atrybut href w tym elemencie</a></p>
+    <button id="remove_attrib_butt">Zbrób to</button>
+
+
+    <h3 id="id3element">Atrybuty użytkowania</h3>
+
+    
+    <div style="border: 1px solid red">
+
+        <br>
+    </div>
+    <script>
+        document.getElementById("button1").addEventListener("click", function1)
+        document.getElementById("button2").addEventListener("click", function2)
+        document.getElementById("textbutton").addEventListener("click", function3)
+        document.getElementById("remove_attrib_butt").addEventListener("click", remove_att)
+
+
+        function function1() {
+            document.getElementById("H1id").innerHTML = "<i>Świetnie!<i>";
+
+        }
+       
+
+        function function2() {
+            document.getElementById("H2id").innerHTML = "<i>Świetnie!<i>";
+
+        }
+
+        function function3() {
+            myInput.toggleAttribute("disabled");
+
+            if (myInput.hasAttribute("disabled")) {
+                toggleButton.textContent = "Edycja jest teraz niemożliwa";
+            } else {
+                toggleButton.textContent = "Można edytować";
+            }
+        }
+
+        document.getElementById("myButton").addEventListener("click", function () {
+            const elementsInsideDiv = document.querySelectorAll("#myDiv *");
+
+            console.log("Elementy wewnątrz div:");
+            elementsInsideDiv.forEach(function (element) {
+                console.log(element);
+            });
+
+            const selectedElement = document.querySelector("#myDiv strong");
+
+            if (selectedElement) {
+                selectedElement.style.border = "10px dotted green";
+            } else {
+                console.log("Nie znaleziono elementu strong wewnątrz div.");
+            }
+        });
+
+        document.getElementById("myButton1").addEventListener("click", function () {
+
+            const paragraphElement = document.getElementById("myParagraph");
+
+            const titleAttributeValue = paragraphElement.getAttribute("title");
+
+            alert("Wartość atrybutu title: " + titleAttributeValue);
+        });
+
+        function ustawAtrybutDir() {
+
+            var paragraf = document.getElementById("myParagraph1");
+
+            paragraf.setAttribute("dir", "rtl");
+        }
+
+
+        function remove_att() {
+            var pierwszyElement = document.getElementById('pierwszyElementID'); 
+        var drugiElement = document.getElementById('drugiElementID'); 
+        pierwszyElement.removeAttribute('style');
+        pierwszyElement.removeAttribute('href');
+
+        drugiElement.removeAttribute('style');
+        drugiElement.removeAttribute('href');
+        }
+       
+        var h3element = document.getElementById('id3element');
+        id3element.setAttribute('data-id','123');
+
+        id3element.setAttribute('data-type','user');
+
+        id3element.setAttribute('data-id','example');
+
+        id3element.setAttribute('data-id','2000-01-01');
+
+        id3element.setAttribute('data-id','single');
+
+        document.body.appendChild(h3element);
+
+
+    </script>
 </body>
 </html>

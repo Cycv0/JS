@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    <style>
+        .green-text {
+            color: green;
+            transition: text-shadow 0.5s;
+        }
+
+        .green-text:hover {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <textarea id="myTextarea" onfocus="changeBackgroundColor()" placeholder="Wpisz tekst..."></textarea>
+        </div>
+        <p><input type="text" onblur="convertToUpperCase(this)" placeholder="Wpisz tekst..."></p>
+        <p>
+            <select onchange="changeTextColor(this)">
+                <option value="black">Black</option>
+                <option value="brown">Brown</option>
+                <option value="blue">Blue</option>
+                <option value="blueviolet">Blue Violet</option>
+                <option value="burlywood">Burlywood</option>
+                <option value="bisque">Bisque</option>
+            </select>
+        </p>
+        <p onclick="changeFontSize(this)" ondblclick="resetFontSize(this)">Dowolny tekst w paragrafie.</p>
+    </div>
+    <div oncontextmenu="displayImageSrc(event)">
+        <img src="obrazek.jpg" alt="Dowolny obrazek" width="300" height="200">
+    </div>
+    <div>
+        <input type="text" onkeyup="copyTextToParagraph(this)">
+        <p></p>
+    </div>
+    <h1 class="green-text" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">Tekst w nagłówku H1</h1>
+    <script src="09.10.23.js"></script>
+</body>
+</html>

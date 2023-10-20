@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <button onclick="showPrompt()">KLIK</button>
+
+    <script>
+        function showPrompt() {
+
+            var userInput = prompt("Kolor nieba:");
+
+            if (userInput !== null) {
+
+                alert("Twoje niebo jest koloru: " + userInput);
+            } else {
+
+                alert("Nie wpisano żadnego tekstu.");
+            }
+        }
+    </script>
+</body>
+
+</html>

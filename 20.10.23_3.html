@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numer Telefonu</title>
+    <style>
+        .hidden-digits {
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Numer telefonu: <span id="phone-number">123–456–789</span></h1>
+    <input type="checkbox" id="show-number">
+    <label for="show-number">Pokaż cały numer telefonu</label>
+
+    <script>
+        const checkbox = document.getElementById('show-number');
+        const phoneNumber = document.getElementById('phone-number');
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                phoneNumber.classList.remove('hidden-digits');
+            } else {
+                phoneNumber.classList.add('hidden-digits');
+            }
+        });
+    </script>
+</body>
+
+</html>

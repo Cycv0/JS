@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolory</title>
+    <style>
+        .color-cell {
+            padding: 30px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="color-header">Zmień kolor tekstu</h1>
+    <table>
+        <tr>
+            <td class="color-cell" onmouseover="changeColor('gold')" onmouseout="resetColor()" style="background-color: gold">gold</td>
+            <td class="color-cell" onmouseover="changeColor('khaki')" onmouseout="resetColor()" style="background-color: khaki;">khaki</td>
+            <td class="color-cell" onmouseover="changeColor('silver')" onmouseout="resetColor()" style="background-color: silver;">silver</td>
+            <td class="color-cell" onmouseover="changeColor('peru')" onmouseout="resetColor()"style="background-color: peru;">peru</td>
+        </tr>
+    </table>
+
+    <script>
+        function changeColor(color) {
+            document.querySelector('.color-header').style.color = color;
+        }
+
+        function resetColor() {
+            document.querySelector('.color-header').style.color = 'black';
+        }
+    </script>
+</body>
+
+</html>

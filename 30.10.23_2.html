@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 2px solid darkred;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: darkred;
+            color: white;
+        }
+
+        .highlight {
+            background-color: orangered;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th colspan="10">Liczby</th>
+        </tr>
+        <tr id="randomNumbersRow"></tr>
+        <tr id="generatedNumbersRow"></tr>
+        <tr class="highlight">
+            <td colspan="5">Najmniejsza liczba</td>
+            <td colspan="5">Największa liczba</td>
+        </tr>
+    </table>
+
+    <script>
+   
+
+
+var x = parseInt(prompt("Podaj wartość x:"));
+var y = parseInt(prompt("Podaj wartość y:"));
+
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+var randomNumbersRow = document.getElementById("randomNumbersRow");
+var generatedNumbersRow = document.getElementById("generatedNumbersRow");
+var minMaxRow = document.querySelector(".highlight");
+
+var minNumber = y;
+var maxNumber = x;
+
+for (var i = 0; i < 10; i++) {
+    var randomNumber = getRandomInt(x, y);
+    var cell = document.createElement("td");
+    cell.textContent = randomNumber;
+    randomNumbersRow.appendChild(cell);
+
+
+    minNumber = Math.min(minNumber, randomNumber);
+    maxNumber = Math.max(maxNumber, randomNumber);
+}
+
+
+for (var i = 0; i < 10; i++) {
+    var randomNumber = getRandomInt(x, y);
+    var cell = document.createElement("td");
+    cell.textContent = randomNumber;
+    generatedNumbersRow.appendChild(cell);
+
+
+    minNumber = Math.min(minNumber, randomNumber);
+    maxNumber = Math.max(maxNumber, randomNumber);
+}
+
+minMaxRow.children[0].textContent = minNumber;
+minMaxRow.children[9].textContent = maxNumber;
+
+
+    </script>
+</body>
+
+</html>

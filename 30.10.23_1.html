@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            text-shadow: 2px 2px 4px;
+        }
+
+        p, button {
+            margin: 10px;
+            padding: 10px;
+            background-color: lightsteelblue;
+            border-top: 2px solid darkblue;
+            border-bottom: 2px solid darkblue;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Obliczanie funkcji</h1>
+
+    <script>
+
+        var liczba = prompt("Podaj liczbę");
+        liczba = parseFloat(liczba);
+        document.querySelector("h1").textContent += " " + liczba;
+
+        var absValue = Math.abs(liczba);
+        var ceilValue = Math.ceil(liczba);
+        var floorValue = Math.floor(liczba);
+        var maxValue = Math.max(liczba, 0);
+        var minValue = Math.min(liczba, 0);
+        var powValue = Math.pow(liczba, 2);
+        var roundValue = Math.round(liczba);
+        var sqrtValue = Math.sqrt(liczba);
+
+
+        document.write("<p>abs(" + liczba + ") = " + absValue + "</p>");
+        document.write("<p>ceil(" + liczba + ") = " + ceilValue + "</p>");
+        document.write("<p>floor(" + liczba + ") = " + floorValue + "</p>");
+        document.write("<p>max(" + liczba + ", 0) = " + maxValue + "</p>");
+        document.write("<p>min(" + liczba + ", 0) = " + minValue + "</p>");
+        document.write("<p>pow(" + liczba + ", 2) = " + powValue + "</p>");
+        document.write("<p>round(" + liczba + ") = " + roundValue + "</p>");
+        document.write("<p>sqrt(" + liczba + ") = " + sqrtValue + "</p>");
+        document.write('<button onclick="location.reload()">Rilołd</button>');
+    </script>
+</body>
+
+</html>

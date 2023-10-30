@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+</html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Przykładowy dokument</title>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+            var fontSize = 100;
+
+            var resize = document.createElement("span");
+            let mybutton1 = document.getElementById("mybutton1"); 
+            mybutton1.addEventListener("click", function(){
+                document.body.style.fontSize = (fontSize += 5) + "%";
+            }, false);
+
+            let mybutton2 = document.getElementById("mybutton2"); 
+            mybutton2.addEventListener("click", function(){
+                document.body.style.fontSize = (fontSize -= 5) + "%";
+            }, false);
+
+            document.body.appendChild(resize);
+        }, false);
+    </script>
+</head>
+<body>
+    <p>Pan Tadeusz, czyli ostatni zajazd na Litwie.</p>
+    <button id="mybutton1">+</button>
+    <button id="mybutton2">-</button>
+</body>
+</html>

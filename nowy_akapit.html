@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowy Dokument</title>
+</head>
+<body>
+    <script>
+        var MyP = document.createElement('p');
+
+        MyP.setAttribute('style', 'background-color: orange;');
+
+        MyP.textContent = 'Lorem ipsum';
+
+        document.body.appendChild(MyP);
+
+        console.log(MyP);
+    </script>
+</body>
+</html>

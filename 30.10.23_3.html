@@ -24,14 +24,16 @@
         <label for="color">Kolor:</label>
         <input type="color" id="color" name="color" value="#ffffff" required>
         <br>
-        <button type="button" onclick="drawRectangle()">Narysuj</button>
+        <button type="button" id="MyButton1" onclick="drawRectangle()">Narysuj</button>
     </form>
 
     <canvas id="canvas" width="400" height="200"></canvas>
 
     <div id="result"></div>
+    
 
     <script>
+        
 function drawRectangle() {
     var width = parseInt(document.getElementById("width").value);
     var height = parseInt(document.getElementById("height").value);
@@ -44,11 +46,11 @@ function drawRectangle() {
     ctx.fillStyle = color;
     ctx.fillRect(10, 10, width * 20, height * 20);
 
-    var perimeter = 2 * (width + height);
-    var area = width * height;
+    var Obwód = 2 * (width + height);
+    var Pole = width * height;
 
     var resultDiv = document.getElementById("result");
-    resultDiv.textContent = "Obwód: " + perimeter + ", Pole: " + area;
+    resultDiv.textContent = "Obwód(cm): " + Obwód + ", Pole(cm2): " + Pole;
 }
 
         

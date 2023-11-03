@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Funkcja Slice</title>
+    <style>
+        #p2 {
+            background-color: #c6ddec;
+            padding: 5px;
+            display: none;
+        }
+        #p3 {
+            background-color: #d6ecd2;
+            padding: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1">Mikołaj Kopernik – polski polihistor pochodzenia niemieckiego</p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <button onclick="sliceWord1()">Wytnij słowo polihistor</button>
+    <button onclick="sliceWord2()">Wytnij słowo niemiec</button>
+
+    <script>
+        function sliceWord1() {
+            var text = document.getElementById('p1').innerText;
+            var start = text.indexOf('polihistor');
+            var end = start + 'polihistor'.length;
+            var slicedText = text.slice(start, end);
+            document.getElementById('p2').innerText = slicedText;
+        }
+
+        function sliceWord2() {
+            var text = document.getElementById('p1').innerText;
+            var start = text.indexOf('niemiec');
+            var end = start + 'niemiec'.length;
+            var slicedText = text.slice(start, end);
+            document.getElementById('p3').innerText = slicedText;
+            document.getElementById('p2').style.display = "block";
+            document.getElementById('p3').style.display = "block";
+        }
+    </script>
+</body>
+</html>

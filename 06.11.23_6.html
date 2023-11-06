@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1></h1>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <button id="generuj">Generuj losową liczbę</button>
+
+    <script>
+const generujButton = document.getElementById('generuj');
+const naglowekPierwszegoStopnia = document.querySelector('h1');
+const naglowkiDrugiegoStopnia = document.querySelectorAll('h2');
+
+generujButton.addEventListener('click', () => {
+    const losowa = Math.floor(Math.random() * 30) + 1;
+    naglowekPierwszegoStopnia.innerText = `Wygenerowana liczba: ${losowa}`;
+    naglowekPierwszegoStopnia.style.color = 'darkorchid';
+
+    if (losowa >= 20) {
+        naglowkiDrugiegoStopnia[0].innerText = 'Wylosowana liczba jest większa lub równa 20.';
+        naglowkiDrugiegoStopnia[0].style.color = 'magenta';
+    } else {
+        naglowkiDrugiegoStopnia[0].innerText = '';
+    }
+
+    if (losowa % 2 === 0) {
+        naglowkiDrugiegoStopnia[1].innerText = 'Wylosowana liczba jest parzysta.';
+        naglowkiDrugiegoStopnia[1].style.color = 'navy';
+    } else {
+        naglowkiDrugiegoStopnia[1].innerText = 'Wylosowana liczba jest nieparzysta.';
+        naglowkiDrugiegoStopnia[1].style.color = 'navy';
+    }
+
+    const dziesiatka = Math.ceil(losowa / 10);
+    naglowkiDrugiegoStopnia[2].innerText = `Liczba należy do ${dziesiatka} dziesiątki.`;
+    naglowkiDrugiegoStopnia[2].style.color = 'deeppink';
+});
+
+    </script>
+</body>
+
+</html>

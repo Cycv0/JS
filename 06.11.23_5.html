@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <p id="text">Deep Purple - brytyjski zespół rockowy, założony w 1968 roku w skladzie:</p>
+    <hr>
+    <button onclick="button1()">Ritchie Blackmore</button> <br>
+    <button onclick="button2()">Jon Lord</button> <br>
+    <button onclick="button3()">Nick Simper</button> <br>
+    <button onclick="button4()">Ian Paice</button> <br>
+    <button onclick="button5()">Rod Evans</button> <br>
+    <script>
+        function button1() {
+            var paragraph = document.getElementById('text');
+            paragraph.textContent += " Ritchie Blackmore,";
+        }
+
+        function button2() {
+            var paragraph = document.getElementById('text');
+            paragraph.textContent += " Jon Lord,";
+        }
+
+        function button3() {
+            var paragraph = document.getElementById('text');
+            paragraph.textContent += " Nick Simper,";
+        }
+
+        function button4() {
+            var paragraph = document.getElementById('text');
+            paragraph.textContent += " Ian Paice,";
+        }
+
+        function button5() {
+            var paragraph = document.getElementById('text');
+            paragraph.textContent += " Rod Evans.";
+        }
+    </script>
+</body>
+
+</html>

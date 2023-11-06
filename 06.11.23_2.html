@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <p id="text">Czuwaj</p>
+    <button onclick="mybutton1()">Doklej wykrzyknik (!) na końcu tekstu</button>
+
+    <script>
+        function mybutton1() {
+            var paragraph = document.getElementById('text');
+            paragraph.textContent += '!';
+        }
+    </script>
+</body>
+
+</html>

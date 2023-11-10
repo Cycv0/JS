@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prosty Kalkulator</title>
+</head>
+<body>
+<h1>Dzielenie z resztą</h1>
+<h2>Podaj dwie liczby całkowite</h2>
+  <input type="number" id="liczba1" oninput="calculate()">
+  <span>/</span>
+  <input type="number" id="liczba2" oninput="calculate()">
+  <span>=</span>
+  <input type="text" id="wynik" readonly>
+  <span>Reszta:</span>
+  <input type="text" id="reszta" readonly>
+
+  <script>
+    function calculate() {
+      var liczba1 = document.getElementById('liczba1').value;
+      var liczba2 = document.getElementById('liczba2').value;
+      var wynikField = document.getElementById('wynik');
+      var resztaField = document.getElementById('reszta');
+
+      if (liczba2 == 0) {
+        wynikField.value = 'Nie można dzielić przez zero';
+        resztaField.value = '';
+      } else {
+        var iloraz = Math.floor(liczba1 / liczba2);
+        var reszta = liczba1 % liczba2;
+        wynikField.value = iloraz;
+        resztaField.value = reszta;
+      }
+    }
+  </script>
+
+</body>
+</html>

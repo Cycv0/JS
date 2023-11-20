@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .rounded-box {
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .image-box {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            height: 100px;
+            width: 200px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+        }
+
+        .split-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .sub-box {
+            flex: 0 0 48%;
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 10px;
+            margin-right: 1%;
+        }
+
+        #clock {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        #hour,
+        #minute {
+            position: absolute;
+            transform-origin: 50% 100%;
+            transform: translateX(-50%) rotate(0deg);
+            transition: transform 0.5s cubic-bezier(0.4, 2.5, 0.75, 1.5);
+        }
+
+        #minute {
+            height: 90px;
+            width: 2px;
+            background-color: blue;
+        }
+
+        #hour {
+            height: 70px;
+            width: 4px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Miarę kąta między wskazówkami zegara</h3>
+
+    <div class="container">
+        <div class="rounded-box">
+            <p>Miarę kąta między wskazówką minutową a godzinową można obliczyć według wzoru</p>
+            <div class="image-box">
+                <img src="wzor.bmp" alt="Wzór">
+            </div>
+        </div>
+
+        <div class="split-box">
+            <div class="sub-box">
+                <p>Godziny [0,11]</p>
+                <input type="range" id="pi_input" min="0" max="11" />
+                <p><output id="value"></output></p>
+            </div>
+            <div class="sub-box">
+                <p>[Minuty 0,60]</p>
+                <input type="range" id="pi_input2" min="0" max="60" />
+                <p><output id="value2"></output></p>
+            </div>
+        </div>
+
+        <div id="clock">
+            <div id="hour"></div>
+            <div id="minute"></div>
+        </div>
+    </div>
+
+    <script>
+        const value = document.querySelector("#value");
+        const input = document.querySelector("#pi_input");
+        value.textContent = input.value;
+        input.addEventListener("input", (event) => {
+            value.textContent = event.target.value;
+            updateClock();
+        });
+
+        const value2 = document.querySelector("#value2");
+        const input2 = document.querySelector("#pi_input2");
+        value2.textContent = input2.value;
+        input2.addEventListener("input", (event) => {
+            value2.textContent = event.target.value;
+            updateClock();
+        });
+
+        function updateClock() {
+            const minuteValue = parseInt(value2.textContent);
+            const hourValue = parseInt(value.textContent) % 12;
+
+            const minuteRotation = minuteValue * 6; // Each minute corresponds to 6 degrees
+            const hourRotation = (hourValue * 30) + (minuteValue / 2); // Each hour corresponds to 30 degrees, and each minute to 0.5 degrees
+
+            document.getElementById("minute").style.transform = `translateX(-50%) rotate(${minuteRotation}deg)`;
+            document.getElementById("hour").style.transform = `translateX(-50%) rotate(${hourRotation}deg)`;
+        }
+    </script>
+</body>
+
+</html>

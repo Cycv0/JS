@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input {
+            margin: 10px;
+            box-shadow: 5px 5px lightblue;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="liczby">
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formularz = document.getElementById('liczby');
+
+            for (var wiersz = 1; wiersz <= 20; wiersz++) {
+                var nowyWiersz = document.createElement('div');
+                formularz.appendChild(nowyWiersz);
+
+                for (var kolumna = 1; kolumna <= 5; kolumna++) {
+                    var i = (wiersz - 1) * 5 + kolumna;
+                    var poleInput = document.createElement('input');
+                    poleInput.type = 'text';
+                    poleInput.id = 'poleInput' + i;
+                    poleInput.name = 'poleInput' + i;
+                    poleInput.placeholder = 'Element numer ' + i;
+                    poleInput.style.margin = '10px';
+                    poleInput.style.boxShadow = '5px 5px lightblue';
+                    nowyWiersz.appendChild(poleInput);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

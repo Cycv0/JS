@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+        <h1>Dzielenie z resztą</h1>
+        <h2>Podaj dwie liczby całkowite</h2>
+  <input type="number" id="liczba1" oninput="calculate()" placeholder="Liczba 1">
+  <span>/</span>
+  <input type="number" id="liczba2" oninput="calculate()" placeholder="Liczba 2">
+  <span>=</span>
+  <input type="text" id="wynik" readonly>
+  <span>Reszta:</span>
+  <input type="text" id="reszta" readonly>
+
+  <script>
+    function calculate() {
+      var liczba1 = parseInt(document.getElementById('liczba1').value);
+      var liczba2 = parseInt(document.getElementById('liczba2').value);
+      var wynik2 = document.getElementById('wynik');
+      var reszta2 = document.getElementById('reszta');
+
+      if (liczba2 === 0) {
+        wynik2.value = 'Nie można dzielić przez zero';
+        reszta2.value = '';
+      } else {
+        var iloraz = Math.floor(liczba1 / liczba2);
+        var reszta = liczba1 % liczba2;
+        wynik2.value = iloraz;
+        reszta2.value = reszta;
+      }
+    }
+  </script>
+
+</body>
+</html>

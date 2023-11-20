@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .rounded-box {
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .image-box {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            height: 100px;
+            width: 200px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+        }
+
+        .split-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .sub-box {
+            flex: 0 0 48%;
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 10px;
+            margin-right: 1%;
+        }
+        #clockContainer {
+            position: relative;
+            margin: left;
+            height: 10vw;
+            /*to make the height and width responsive*/
+            width: 10vw;
+            background: url(https://i.pinimg.com/736x/ce/af/4a/ceaf4a4ea06922419651126355b72296.jpg) no-repeat;
+            /*setting our background image*/
+            background-size: 100%;
+        }
+
+        #hour,
+        #minute,
+        #second {
+            position: absolute;
+            background: black;
+            border-radius: 10px;
+            transform-origin: bottom;
+        }
+
+        #hour {
+            width: 1.8%;
+            height: 25%;
+            top: 25%;
+            left: 48.85%;
+            opacity: 0.8;
+        }
+
+        #minute {
+            width: 1.6%;
+            height: 30%;
+            top: 19%;
+            left: 48.9%;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+
+<body>
+        <h3>Miarę kąta między wskazówkami zegara</h3>
+
+    <div class="container">
+        <div class="rounded-box">
+            <p>Miarę kąta między wskazówką minutową a godzinową można obliczyć wedgług wzoru</p>
+            <div class="image-box">
+                <img src="wzor.bmp">
+            </div>
+        </div>
+
+        <div class="split-box">
+            <div class="sub-box">
+                <p>Godziny [0,11]</p>
+                <input type="range" id="pi_input" min="0" max="11" />
+                <p><output id="value"></output></p>
+
+            </div>
+            <div class="sub-box">
+                <p>[Minuty 0,60]</p>
+                <input type="range" id="pi_input2" min="0" max="60" />
+                <p><output id="value2"></output></p>
+            </div>
+        </div>
+        <div id="clock">
+
+            <div id="clockContainer">
+                <div id="hour"></div>
+                <div id="minute"></div>
+                <div id="second"></div>
+            </div>
+            <!--<img src="clock.png" alt="" srcset="">
+            <div id="hours_hand" class="hand" style="transform: rotate(0deg);"></div>
+            <div id="minutes_hand" class="hand" style="transform: rotate(0deg);"></div>-->
+        </div>
+    
+        <div class="frame input_output" id="frame4">
+        <label for="angle">Kąt°</label>
+        <br>
+        <br>
+            <output id="angle">0°</output>
+        </div>
+        
+        
+    </body>
+    <script>
+        const value = document.querySelector("#value");
+        const input = document.querySelector("#pi_input");
+        value.textContent = input.value;
+        input.addEventListener("input", (event) => {
+            value.textContent = event.target.value; 
+            hr = value.textContent;
+            hr_rotation = 30 * hr; // converting current time
+            hour.style.transform = `rotate(${hr_rotation}deg)`;
+
+            updateAngle();
+        });
+    
+        const value2 = document.querySelector("#value2");
+        const input2 = document.querySelector("#pi_input2");
+        value2.textContent = input2.value;
+        input2.addEventListener("input", (event) => {
+            value2.textContent = event.target.value;
+            min = value2.textContent;
+            min_rotation = 6 * min;
+            minute.style.transform = `rotate(${min_rotation}deg)`;
+
+            updateAngle();
+        });
+        function updateAngle() {
+            // Calculate the angle between the hour and minute hands
+            const angle = Math.abs(hr_rotation - min_rotation);
+            // Update the angle output field
+            document.querySelector("#angle").textContent = `${angle}°`;
+        }
+
+    </script>
+    </html>
+
+

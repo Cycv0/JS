@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        .table {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .cell {
+            display: table-cell;
+            border: 1px solid #aaaaaa;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+        }
+
+        .cell img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var draggedElement = document.getElementById(data);
+
+            if (ev.target.classList.contains("cell")) {
+                ev.target.appendChild(draggedElement);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="table">
+        <div class="row">
+            <div id="cell1" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="drag1" src="Japko1.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div id="cell2" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="drag2" src="Japko2.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div id="cell3" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="drag3" src="Japko3.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div id="cell4" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="drag4" src="Japko4.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="cell5" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="cell6" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="cell7" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="cell8" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+    </div>
+</body>
+
+</html>

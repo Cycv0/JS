@@ -22,7 +22,6 @@
             padding: 20px;
             margin-top: 20px;
         }
-
         .image-box {
             border-radius: 10px;
             overflow: hidden;
@@ -49,19 +48,17 @@
             padding: 10px;
             margin-right: 1%;
         }
-        #clockContainer {
+        #zegar {
             position: relative;
             margin: left;
             height: 10vw;
-            /*to make the height and width responsive*/
             width: 10vw;
             background: url(https://i.pinimg.com/736x/ce/af/4a/ceaf4a4ea06922419651126355b72296.jpg) no-repeat;
-            /*setting our background image*/
             background-size: 100%;
         }
 
-        #hour,
-        #minute,
+        #godziny,
+        #minuty,
         #second {
             position: absolute;
             background: black;
@@ -69,7 +66,7 @@
             transform-origin: bottom;
         }
 
-        #hour {
+        #godziny {
             width: 1.8%;
             height: 25%;
             top: 25%;
@@ -77,7 +74,7 @@
             opacity: 0.8;
         }
 
-        #minute {
+        #minuty {
             width: 1.6%;
             height: 30%;
             top: 19%;
@@ -114,14 +111,11 @@
         </div>
         <div id="clock">
 
-            <div id="clockContainer">
-                <div id="hour"></div>
-                <div id="minute"></div>
+            <div id="zegar">
+                <div id="godziny"></div>
+                <div id="minuty"></div>
                 <div id="second"></div>
             </div>
-            <!--<img src="clock.png" alt="" srcset="">
-            <div id="hours_hand" class="hand" style="transform: rotate(0deg);"></div>
-            <div id="minutes_hand" class="hand" style="transform: rotate(0deg);"></div>-->
         </div>
     
         <div class="frame input_output" id="frame4">
@@ -141,7 +135,7 @@
             value.textContent = event.target.value; 
             hr = value.textContent;
             hr_rotation = 30 * hr; // converting current time
-            hour.style.transform = `rotate(${hr_rotation}deg)`;
+            godziny.style.transform = `rotate(${hr_rotation}deg)`;
 
             updateAngle();
         });
@@ -153,14 +147,12 @@
             value2.textContent = event.target.value;
             min = value2.textContent;
             min_rotation = 6 * min;
-            minute.style.transform = `rotate(${min_rotation}deg)`;
+            minuty.style.transform = `rotate(${min_rotation}deg)`;
 
             updateAngle();
         });
         function updateAngle() {
-            // Calculate the angle between the hour and minute hands
             const angle = Math.abs(hr_rotation - min_rotation);
-            // Update the angle output field
             document.querySelector("#angle").textContent = `${angle}°`;
         }
 

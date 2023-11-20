@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="numbers">
+        <legend>Liczby trzycyfrowe</legend>
+    </fieldset>
+   
+    <script>
+        const numbers = [];
+        for (let i = 100; i <= 999; i++) {
+            numbers.push(i);
+        }
+        const fieldset = document.getElementById("numbers");
+        let suma = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            const number = numbers[i];
+            const digits = number.toString().split("");
+            let sum = 0;
+            for (let j = 0; j < digits.length; j++) {
+                sum += parseInt(digits[j]);
+            }
+            if (sum === 10) {
+                suma++;
+                const span = document.createElement("span");
+                span.textContent = number + " ";
+                span.classList.add("red");
+                fieldset.appendChild(span);
+            } else {
+                fieldset.appendChild(document.createTextNode(number + ", "));
+            }
+        }
+        const h3 = document.createElement("h3");
+        h3.textContent = "Liczby, których suma wynosi 10: " + suma;
+        document.body.appendChild(h3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liczby Palindromiczne</title>
+  <style>
+    #fieldset1 {
+      border: 2px dotted #333;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<fieldset>
+  <div>
+    <p>Znajdź liczby palindromiczne, czyli takie które przy czytaniu od lewej do prawej i odwrotnie są jednakowe.</p>
+    
+    <input type="radio" onclick="findPalindromes(2)">dwucyfrowe</button>
+    <input type="radio" onclick="findPalindromes(3)">trzycyfrowwe</button>
+    <input type="radio" onclick="findPalindromes(4)">czterocyfrowe</button>
+    <input type="radio" onclick="findPalindromes(5)">piecocyfrowe</button>
+    
+    <button onclick="findPalindromes()">Znajdź</button>
+  </div>
+
+  <fieldset id="fieldset1">
+    <legend>Liczby palindromiczne</legend>
+    <div id="result"></div>
+  </fieldset>
+
+  <script>
+    function findPalindromes(digits) {
+      let result = '';
+      const start = Math.pow(10, digits - 1);
+      const end = Math.pow(10, digits) - 1;
+
+      for (let i = start; i <= end; i++) {
+        const strNum = i.toString();
+        const reversedStr = strNum.split('').reverse().join('');
+
+        if (strNum === reversedStr) {
+          result += strNum + ', ';
+          count++;
+        }
+      }
+      document.getElementById('result').textContent += '\nLiczba palindromicznych trzycyfrowych lub dwucyfrowych jest: ' + count;
+    }
+  </script>
+</fieldset>
+</body>
+</html>

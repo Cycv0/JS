@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #kalkulator {
+            background-color: #dedede;
+            width: 210px;
+            padding: 20px;
+            border-radius: 5px;
+            color: grey;
+        }
+        #obliczenia, #wynik {
+            width: 196px;
+            height: 30px;
+            margin-bottom: 10px;
+            color: white;
+            background-color: grey;
+            text-align: right;
+            padding-right: 5px;
+        }
+        .przycisk {
+            width: 45px;
+            height: 45px;
+            margin: 2px;
+            color: white;
+            background-color: #666;
+            border: none;
+            border-radius: 1px;
+            font-size: 20px;
+        }
+        #czysc {
+            background-color: #8f2236;
+            grid-column: span 2; 
+        }
+        #rowna_sie {
+            background-color: white;
+            color: #666;
+            grid-column: span 2; 
+        }
+        .operator {
+            background-color: white;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="kalkulator">
+        <input type="text" id="obliczenia" readonly>
+        <input type="text" id="wynik" readonly>
+        <br>
+        <button class="przycisk">7</button>
+        <button class="przycisk">8</button>
+        <button class="przycisk">9</button>
+        <button class="przycisk operator">÷</button>
+        <br>
+        <button class="przycisk">4</button>
+        <button class="przycisk">5</button>
+        <button class="przycisk">6</button>
+        <button class="przycisk operator">×</button>
+        <br>
+        <button class="przycisk">1</button>
+        <button class="przycisk">2</button>
+        <button class="przycisk">3</button>
+        <button class="przycisk operator">–</button>
+        <br>
+        <button class="przycisk" id="czysc">C</button>
+        <button class="przycisk">0</button>
+        <button class="przycisk" id="rowna_sie">=</button>
+        <button class="przycisk operator">+</button>
+    </div>
+
+    <script>
+        let obliczenia = document.getElementById('obliczenia');
+        let wynik = document.getElementById('wynik');
+        let przyciski = document.getElementsByClassName('przycisk');
+        let czysc = document.getElementById('czysc');
+        let rowna_sie = document.getElementById('rowna_sie');
+
+        for(let i=0; i<przyciski.length; i++) {
+            przyciski[i].addEventListener('click', function() {
+                if(this.innerText !== '=') {
+                    obliczenia.value += this.innerText;
+                }
+            });
+        }
+
+        rowna_sie.addEventListener('click', function() {
+            try {
+                wynik.value = eval(obliczenia.value);
+            } catch {
+                wynik.value = 'Błąd';
+            }
+        });
+
+        czysc.addEventListener('click', function() {
+            obliczenia.value = '';
+            wynik.value = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Zwierząt</title>
+</head>
+<body>
+
+<button id="button1">Pętla for (JS) + lista 1 2 3 (HTML)</button>
+<button id="button2">Pętla of (JS) + lista a b c (HTML)</button>
+<button id="button3">Pętla forEach(JS) + lista I II III (HTML)</button>
+
+<ol id="list-container"></ol>
+
+<script>
+  const animalNames = ['Lew', 'Słoń', 'Żyrafa', 'Panda', 'Koala', 'Kangur'];
+
+  function createList(type) {
+    const listContainer = document.getElementById('list-container');
+    listContainer.innerHTML = '';
+
+    switch (type) {
+      case 1:
+        for (let i = 0; i < animalNames.length; i++) {
+          const listItem = document.createElement('ol');
+          listItem.textContent = `${i + 1}. ${animalNames[i]}`;
+          listContainer.appendChild(listItem);
+        }
+        break;
+      case 2:
+        let letter = 97;
+        for (const animal of animalNames) {
+          const listItem = document.createElement('ol');
+          listItem.textContent = `${String.fromCharCode(letter++)}. ${animal}`;
+          listContainer.appendChild(listItem);
+        }
+        break;
+      case 3:
+        animalNames.forEach((animal, index) => {
+          const listItem = document.createElement('ol');
+          listItem.textContent = `${RomanNumerals(index + 1)}. ${animal}`;
+          listContainer.appendChild(listItem);
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
+  document.getElementById('button1').addEventListener('click', () => createList(1));
+  document.getElementById('button2').addEventListener('click', () => createList(2));
+  document.getElementById('button3').addEventListener('click', () => createList(3));
+
+  
+  function RomanNumerals(num) {
+    const romanNumeralMap = [
+      { value: 9, numeral: 'IX' },
+      { value: 5, numeral: 'V' },
+      { value: 4, numeral: 'IV' },
+      { value: 1, numeral: 'I' }
+    ];
+
+    let result = '';
+    for (const pair of romanNumeralMap) {
+      while (num >= pair.value) {
+        result += pair.numeral;
+        num -= pair.value;
+      }
+    }
+
+    return result;
+  }
+</script>
+
+</body>
+</html>

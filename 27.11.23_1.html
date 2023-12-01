@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liczby Palindromiczne</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
 
-    #ddd {
-      border: 2px dotted black;
+    fieldset {
+      border: 2px dotted #333;
       border-radius: 5px;
       padding: 10px;
       margin-top: 20px;
@@ -14,30 +19,25 @@
   </style>
 </head>
 <body>
-<fieldset>
+
   <div>
     <p>Znajdź liczby palindromiczne, czyli takie które przy czytaniu od lewej do prawej i odwrotnie są jednakowe</p>
     
-    <input type="radio" name="digits" value="2"> dwucyfrowe
-    <input type="radio" name="digits" value="3"> trzycyfrowwe
-    <input type="radio" name="digits" value="4"> czterocyfrowe
-    <input type="radio" name="digits" value="5"> piecocyfrowe
+    <input type="radio" onclick="findPalindromes(2)">dwucyfrowe</button>
+    <input type="radio" onclick="findPalindromes(3)">trzycyfrowwe</button>
+    <input type="radio" onclick="findPalindromes(4)">czterocyfrowe</button>
+    <input type="radio" onclick="findPalindromes(5)">piecocyfrowe</button>
     
     <button onclick="findPalindromes()">Znajdź</button>
   </div>
 
-  <fieldset id="ddd">
+  <fieldset>
     <legend>Liczby palindromiczne</legend>
     <div id="result"></div>
   </fieldset>
-  <div id="countText"></div>
 
   <script>
-    function findPalindromes() {
-      const selectedDigits = document.querySelector('input[name="digits"]:checked');
-
-
-      const digits = parseInt(selectedDigits.value, 10);
+    function findPalindromes(digits) {
       let result = '';
       let count = 0;
 
@@ -53,12 +53,11 @@
           count++;
         }
       }
-document.createElement('div')
-      document.getElementById('result').textContent = result || '';
-      document.getElementById('countText').textContent = count > 0 ? 'Liczba palindromicznych trzycyfrowych lub dwucyfrowych jest: ' + count : '';
+
+      document.getElementById('result').textContent = result || 'Brak palindromów dla podanych cyfr.';
+      document.getElementById('result').textContent += '\nLiczba palindromicznych trzycyfrowych lub dwucyfrowych jest: ' + count;
     }
   </script>
-</fieldset>
+
 </body>
 </html>
-

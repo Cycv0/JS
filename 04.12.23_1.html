@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Calibri';
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .container {
+            border: 2px solid green;
+            display: flex;
+            padding: 20px;
+        }
+
+        .inner-container {
+            border: 5px double red;
+            display: flex;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .square {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-color: green;
+            cursor: pointer;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+        }
+
+        .animal-section {
+            border: 5px solid red;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .array-display {
+            border: 2px solid blue;
+            padding: 10px;
+            background-color: rgb(9, 145, 145);
+            margin-left: 95px;
+            width: 120px;
+            display: inline-block;
+        }
+        .array-display2 {
+            border: 2px solid blue;
+            padding: 10px;
+            background-color: rgb(9, 145, 145);
+            margin-left: 120px;
+            width: 120px;
+            display: inline-block;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="inner-container">
+        <div class="container">
+            <button class="square" onclick="showOriginalList()">Oryginalna lista imion</button>
+            <button class="square" onclick="showLowerCaseList()">Wszystkie litery małe</button>
+            <button class="square">Pierwsza litera wielka</button>
+            <button class="square">Tyle gwiazdek ile liter</button>
+        </div>
+    </div>
+    <div class="array-display" id="arrayDisplay"></div>
+    <div class="array-display2" id="arrayDisplay2"></div>
+    <script>
+        const imie = ['Marcin', 'Ania', 'Monika', 'Piotr', 'Beata', 'ania', 'marcin', 'piotr', 'PIOTR', 'ANIA','MONIKA'];
+
+        function showOriginalList() {
+            const arrayDisplay = document.getElementById('arrayDisplay');
+            arrayDisplay.innerHTML = `<p>${imie.join('<br>')}</p>`;
+        }
+
+        function showLowerCaseList() {
+            const lowerCaseImie = imie.map(name => name.toLowerCase());
+            const arrayDisplay2 = document.getElementById('arrayDisplay2');
+            arrayDisplay2.innerHTML = `<p>${lowerCaseImie.join('<br>')}</p>`;
+        }
+    </script>
+
+</body>
+</html>
